@@ -34,26 +34,31 @@ const ProgrammerSchema = new mongoose.Schema({
     nodejs: {
       type: Number,
       required: true,
+      max: 5,
       default: 0,
     },
     angular: {
       type: Number,
       required: true,
+      max: 5,
       default: 0,
     },
     html: {
       type: Number,
       required: true,
+      max: 5,
       default: 0,
     },
     css: {
       type: Number,
       required: true,
+      max: 5,
       default: 0,
     },
     bancoDados: {
       type: Number,
       required: true,
+      max: 5,
       default: 0,
     },
   },
