@@ -10,7 +10,7 @@ const ProgrammerSchema = new mongoose.Schema({
     required: true,
   },
   telefone: {
-    type: Number,
+    type: String,
     required: true,
   },
   linkedin: {
@@ -29,6 +29,33 @@ const ProgrammerSchema = new mongoose.Schema({
     type: String,
     enum: ['Manhã', 'Tarde', 'Noite'],
     required: true,
+  },
+  habilidades: {
+    nodejs: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    angular: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    html: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    css: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    bancoDados: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
   },
 });
 
