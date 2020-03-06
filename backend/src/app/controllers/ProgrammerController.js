@@ -6,9 +6,19 @@ class ProgrammerController {
     try {
       const programmers = await ProgrammerSchema.find();
 
-      res.status(200).json(new Response(200, 'successo', programmers));
+      return res.status(200).json(new Response(200, 'successo', programmers));
     } catch (err) {
-      res.status(500).json(new Response(500, 'erro', null));
+      return res.status(500).json(new Response(500, 'erro', null));
+    }
+  }
+
+  async store(req, res) {
+    try {
+      const programmer = await ProgrammerSchema.create(req.body);
+
+      return res.status(200).json(new Response(201, 'sucesso', programmer));
+    } catch (err) {
+      return res.status(200).json(new Response(201, 'sucesso', null));
     }
   }
 }
