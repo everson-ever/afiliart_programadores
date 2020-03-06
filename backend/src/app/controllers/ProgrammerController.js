@@ -18,7 +18,13 @@ class ProgrammerController {
 
       return res.status(200).json(new Response(201, 'sucesso', programmer));
     } catch (err) {
-      return res.status(200).json(new Response(201, 'sucesso', null));
+      if (err.name === 'ValidationError') {
+        return res
+          .status(400)
+          .json(new Response(400, 'Dados incorretos informados', null));
+      }
+
+      return res.status(500).json(new Response(500, 'erro', null));
     }
   }
 }
