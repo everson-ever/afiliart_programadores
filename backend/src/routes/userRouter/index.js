@@ -10,7 +10,7 @@ routes.get(
   permission([roles.admin, roles.gestor]),
   UserController.index
 );
-routes.post('/usuarios', permission(roles.admin), UserController.store);
+//routes.post('/usuarios', permission(roles.admin), UserController.store);
 routes.delete('/usuarios/:id', permission(roles.admin), UserController.destroy);
 
 export default routes;
