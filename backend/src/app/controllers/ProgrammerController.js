@@ -18,12 +18,18 @@ class ProgrammerController {
 
       const programmer = await ProgrammerSchema.findById(id);
 
+      if (!programmer) {
+        return res
+          .status(404)
+          .json(new Response(404, 'recurso não encontrado', null));
+      }
+
       return res.status(200).json(new Response(200, 'successo', programmer));
     } catch (err) {
       if (err.name === 'CastError') {
         return res
-          .status(404)
-          .json(new Response(404, 'recurso não encontrado', null));
+          .status(400)
+          .json(new Response(400, 'identificador inválido', null));
       }
       return res.status(500).json(new Response(500, 'erro', null));
     }
@@ -57,12 +63,18 @@ class ProgrammerController {
         }
       );
 
+      if (!programmer) {
+        return res
+          .status(404)
+          .json(new Response(404, 'recurso não encontrado', null));
+      }
+
       return res.status(201).json(new Response(201, 'sucesso', programmer));
     } catch (err) {
       if (err.name === 'CastError') {
         return res
           .status(400)
-          .json(new Response(400, 'recurso não encontrado', null));
+          .json(new Response(400, 'identificador inválido', null));
       }
       return res.status(500).json(new Response(500, 'erro', null));
     }
@@ -72,14 +84,22 @@ class ProgrammerController {
     try {
       const { id } = req.params;
 
-      await ProgrammerSchema.findByIdAndDelete({ _id: id });
+      const programmerDeleted = await ProgrammerSchema.findByIdAndDelete({
+        _id: id,
+      });
+
+      if (!programmerDeleted) {
+        return res
+          .status(404)
+          .json(new Response(404, 'recurso não encontrado', null));
+      }
 
       return res.status(200).json(new Response(200, 'sucesso', null));
     } catch (err) {
       if (err.name === 'CastError') {
         return res
           .status(400)
-          .json(new Response(400, 'recurso não encontrado', null));
+          .json(new Response(400, 'identificador inválido', null));
       }
       return res.status(500).json(new Response(500, 'erro', null));
     }
