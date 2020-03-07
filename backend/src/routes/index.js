@@ -6,6 +6,7 @@ const routes = Router();
 
 routes.get('/usuarios', UserController.index);
 routes.post('/usuarios', UserController.store);
+routes.delete('/usuarios/:id', UserController.destroy);
 
 routes.get('/programadores', ProgrammerController.index);
 routes.get('/programadores/:id', ProgrammerController.show);
