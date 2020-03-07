@@ -39,13 +39,21 @@ class UserController {
     try {
       const { id } = req.params;
 
-      await UserSchema.deleteOne({ _id: id });
+      const programmerDeleted = await UserSchema.deleteOne({ _id: id });
+      console.log(programmerDeleted);
+
+      if (programmerDeleted.deletedCount === 0) {
+        return res
+          .status(404)
+          .json(new Response(404, 'recurso não encontrado', null));
+      }
+
       return res.status(200).json(new Response(200, 'sucesso', null));
     } catch (err) {
       if (err.name === 'CastError') {
         return res
           .status(400)
-          .json(new Response(400, 'recurso não encontrado', null));
+          .json(new Response(400, 'identificador inválido', null));
       }
       return res.status(500).json(new Response(500, 'erro', null));
     }
