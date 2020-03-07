@@ -33,4 +33,10 @@ UserSchema.pre('save', async function(next) {
   this.senha = await bcrypt.hash(this.senha, 8);
 });
 
+UserSchema.methods = {
+  checkPassword(senha) {
+    return bcrypt.compare(senha, this.senha);
+  },
+};
+
 export default mongoose.model('UserSchema', UserSchema);
