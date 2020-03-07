@@ -4,7 +4,7 @@ import UserSchema from './../models/User';
 class UserController {
   async index(req, res) {
     try {
-      const users = await UserSchema.find();
+      const users = await UserSchema.find().select('-senha');
 
       return res.status(200).json(new Response(200, 'sucesso', users));
     } catch (err) {
