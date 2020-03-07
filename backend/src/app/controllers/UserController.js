@@ -40,7 +40,6 @@ class UserController {
       const { id } = req.params;
 
       const programmerDeleted = await UserSchema.deleteOne({ _id: id });
-      console.log(programmerDeleted);
 
       if (programmerDeleted.deletedCount === 0) {
         return res
