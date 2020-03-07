@@ -1,5 +1,7 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
+import authConfig from './../utils/authConfig';
 
 const UserSchema = new mongoose.Schema({
   nome: {
@@ -32,6 +34,12 @@ UserSchema.pre('save', async function(next) {
 
   this.senha = await bcrypt.hash(this.senha, 8);
 });
+
+UserSchema.statics.generateToken = ({ _id, nome, role }) => {
+  return jwt.sign({ _id, nome, role }, authConfig.secretKey, {
+    expiresIn: authConfig.expiresIn,
+  });
+};
 
 UserSchema.methods = {
   checkPassword(senha) {
