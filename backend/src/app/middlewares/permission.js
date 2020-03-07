@@ -1,6 +1,6 @@
 import Response from './../models/Response';
 
-const adminAutheticate = (roles = []) => {
+const permission = (roles = []) => {
   if (typeof roles === 'string') {
     roles = [roles];
   }
@@ -17,4 +17,4 @@ const adminAutheticate = (roles = []) => {
   ];
 };
 
-export default adminAutheticate;
+export default permission;
