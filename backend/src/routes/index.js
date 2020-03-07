@@ -2,10 +2,13 @@ import { Router } from 'express';
 import AuthController from '../app/controllers/AuthController';
 import ProgrammerController from '../app/controllers/ProgrammerController';
 import UserController from '../app/controllers/UserController';
+import auth from '../app/middlewares/auth';
 
 const routes = Router();
 
 routes.post('/auth', AuthController.store);
+
+routes.use(auth);
 
 routes.get('/usuarios', UserController.index);
 routes.post('/usuarios', UserController.store);
