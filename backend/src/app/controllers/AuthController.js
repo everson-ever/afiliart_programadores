@@ -20,7 +20,9 @@ class AuthController {
           .json(new Response(400, 'credencias incorretas', null));
       }
 
-      return res.status(200).json(new Response(200, 'sucesso', user));
+      const token = UserSchema.generateToken(user);
+
+      return res.status(200).json(new Response(200, 'sucesso', { token }));
     } catch (err) {
       return res.status(500).json(new Response(500, 'erro', null));
     }
