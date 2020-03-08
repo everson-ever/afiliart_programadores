@@ -7,10 +7,11 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 export class AuthService {
   public jwtPayload: any;
-  public jwtHelperService: JwtHelperService;
 
-  constructor(private http: HttpClient) {
-    this.jwtHelperService = new JwtHelperService();
+  constructor(
+    private http: HttpClient,
+    private jwtHelperService: JwtHelperService
+  ) {
     this.reloadToken();
   }
 
@@ -22,7 +23,13 @@ export class AuthService {
         this.storeToken(response.data.token);
       })
       .catch(err => {
-        console.log(err);
+        if (err.status === 400) {
+          if (err.error.message === "credencias incorretas") {
+            return Promise.reject("E-mail ou senha incorretos");
+          }
+        }
+
+        return Promise.reject(err);
       });
   }
 
