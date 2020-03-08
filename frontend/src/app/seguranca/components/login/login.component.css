@@ -1,5 +1,7 @@
 .form-login {
   width: 500px;
+  max-width: 100%;
+  padding: 0 15px;
   margin: 0 auto;
   margin-top: 80px;
   display: flex;
