@@ -14,7 +14,9 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {}
 
-  public eventClose() {
-    this.closeMenu.emit("false");
+  public eventClose(event) {
+    if (event.target.id === "close") {
+      this.closeMenu.emit("false");
+    }
   }
 }

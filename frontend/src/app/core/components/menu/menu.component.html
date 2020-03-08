@@ -1,4 +1,9 @@
-<div (click)="eventClose()" *ngIf="active" class="close-background">
+<div
+  (click)="eventClose($event)"
+  *ngIf="active"
+  id="close"
+  class="close-background"
+>
   <section class="box-menu" [ngClass]="{ active: active }">
     <div class="user-logged">
       <i class="fa fa-user icon-user" aria-hidden="true"></i>
