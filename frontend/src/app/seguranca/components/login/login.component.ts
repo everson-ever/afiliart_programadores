@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { ToastrService } from "ngx-toastr";
+import { Router } from "@angular/router";
+import { ErrorHandlerService } from "src/app/core/services/error-handler.service";
 import { AuthService } from "../../services/auth.service";
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private toastr: ToastrService
+    private errorHandlerService: ErrorHandlerService,
+    private router: Router
   ) {}
 
   ngOnInit() {}
@@ -23,10 +25,11 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.email, this.senha)
       .then(() => {
-        console.log("Logado");
+        this.router.navigate(["/home"]);
       })
       .catch(err => {
-        this.toastr.error(err);
+        this.errorHandlerService.handler(err);
+        this.senha = null;
       });
   }
 }
