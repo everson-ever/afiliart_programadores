@@ -1,0 +1,26 @@
+.box-nav {
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 90px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo img {
+  height: 40px;
+  width: 120px;
+}
+
+.menu-open {
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}

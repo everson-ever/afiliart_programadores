@@ -1,0 +1,23 @@
+<div (click)="eventClose()" *ngIf="active" class="close-background">
+  <section class="box-menu" [ngClass]="{ active: active }">
+    <div class="user-logged">
+      <i class="fa fa-user icon-user" aria-hidden="true"></i>
+      <p class="name">Everson Silva</p>
+    </div>
+
+    <ul class="menu">
+      <li
+        [routerLink]="['/programadores']"
+        routerLinkActive="router-link-active"
+      >
+        Programadores
+      </li>
+      <li [routerLink]="['/usuarios']" routerLinkActive="router-link-active">
+        Usuarios
+      </li>
+      <li [routerLink]="['/sair']" routerLinkActive="router-link-active">
+        Sair
+      </li>
+    </ul>
+  </section>
+</div>
