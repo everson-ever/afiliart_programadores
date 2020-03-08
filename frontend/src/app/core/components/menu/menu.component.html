@@ -2,7 +2,7 @@
   <section class="box-menu" [ngClass]="{ active: active }">
     <div class="user-logged">
       <i class="fa fa-user icon-user" aria-hidden="true"></i>
-      <p class="name">Everson Silva</p>
+      <p class="name">{{ authService.jwtPayload?.nome }}</p>
     </div>
 
     <ul class="menu">

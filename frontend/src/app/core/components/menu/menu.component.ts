@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { AuthService } from "src/app/seguranca/services/auth.service";
 
 @Component({
   selector: "app-menu",
@@ -9,7 +10,7 @@ export class MenuComponent implements OnInit {
   @Input() active;
   @Output() closeMenu = new EventEmitter();
 
-  constructor() {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {}
 
