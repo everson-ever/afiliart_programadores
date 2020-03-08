@@ -12,6 +12,7 @@ import { ToastrModule, ToastrService } from "ngx-toastr";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CoreModule } from "./core/core.module";
+import { HomeComponent } from './components/home/home.component';
 
 const JWT_Module_Options: JwtModuleOptions = {
   config: {
@@ -20,7 +21,7 @@ const JWT_Module_Options: JwtModuleOptions = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
