@@ -1,12 +1,26 @@
-<form class="form-login">
+<form #form="ngForm" (ngSubmit)="login(form)" class="form-login">
   <div class="control">
     <label for="email">E-mail</label>
-    <input id="email" type="text" placeholder="email" />
+    <input
+      id="email"
+      name="email"
+      type="text"
+      placeholder="email"
+      #sn
+      [(ngModel)]="email"
+    />
   </div>
 
   <div class="control">
     <label for="senha">Senha</label>
-    <input id="senha" type="password" placeholder="senha" />
+    <input
+      id="senha"
+      name="senha"
+      type="password"
+      placeholder="senha"
+      #em
+      [(ngModel)]="senha"
+    />
   </div>
 
   <button type="submit" class="button-enter">Entrar</button>
