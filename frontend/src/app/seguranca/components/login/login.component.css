@@ -1,0 +1,38 @@
+.form-login {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-login .control {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+
+.control label {
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 3px;
+}
+
+.control input {
+  height: 40px;
+  border-radius: 15px;
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  padding-left: 10px;
+  outline: medium;
+}
+
+.button-enter {
+  background-color: #e02642;
+  color: #fff;
+  font-weight: 700;
+  height: 40px;
+  border-radius: 18px;
+  cursor: pointer;
+  border: none;
+  font-size: 1.1em;
+}
