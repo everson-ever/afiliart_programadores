@@ -1,5 +1,7 @@
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
 import { InputTextModule } from "primeng/inputtext";
 import { LoginComponent } from "./components/login/login.component";
@@ -11,7 +13,9 @@ import { SegurancaRoutingModule } from "./seguranca-routing-module";
     CommonModule,
     SegurancaRoutingModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    FormsModule,
+    HttpClientModule
   ],
   exports: [LoginComponent]
 })
