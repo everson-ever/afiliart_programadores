@@ -1,5 +1,6 @@
 <div class="container box-programadores">
   <button
+    *ngIf="authService.jwtPayload.role === 'ADMIN'"
     pButton
     type="button"
     label="Novo Programador"
