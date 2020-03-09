@@ -14,4 +14,8 @@ export class ErrorHandlerService {
       this.toastr.error("Não foi possível processar sua solicitação");
     }
   }
+
+  public handlerSuccess(message: string) {
+    this.toastr.success(message);
+  }
 }
