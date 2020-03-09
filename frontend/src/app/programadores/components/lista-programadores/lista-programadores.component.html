@@ -1,1 +1,49 @@
-<p>lista-programadores works!</p>
+<div class="container box-programadores">
+  <button
+    pButton
+    type="button"
+    label="Novo Programador"
+    class="ui-button-success"
+  ></button>
+
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th>Linkedin</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>Turno</th>
+    </tr>
+
+    <tr *ngFor="let programador of programadores">
+      <td>{{ programador.nome }}</td>
+      <td>{{ programador.email }}</td>
+      <td>{{ programador.telefone }}</td>
+      <td>{{ programador.linkedin }}</td>
+      <td>{{ programador.cidade }}</td>
+      <td>{{ programador.estado }}</td>
+      <td>{{ programador.turno }}</td>
+      <td (click)="showHability(programador)">
+        <i class="fa fa-book" aria-hidden="true"></i>
+      </td>
+      <td *ngIf="authService.jwtPayload.role === 'ADMIN'">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      </td>
+      <td *ngIf="authService.jwtPayload.role === 'ADMIN'">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p-dialog header="Minha Habilidades" [(visible)]="display">
+  <div class="hability">
+    <p>Node JS: {{ habilidade?.nodejs }}</p>
+    <p>Angular: {{ habilidade?.angular }}</p>
+    <p>HTML: {{ habilidade?.html }}</p>
+    <p>CSS: {{ habilidade?.css }}</p>
+    <p>Banco de dados: {{ habilidade?.bancoDados }}</p>
+  </div>
+</p-dialog>
