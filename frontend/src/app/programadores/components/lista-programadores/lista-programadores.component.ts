@@ -21,7 +21,7 @@ export class ListaProgramadoresComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getProgramadores();
+    this.index();
   }
 
   public showHability(programador) {
@@ -29,11 +29,26 @@ export class ListaProgramadoresComponent implements OnInit {
     this.display = true;
   }
 
-  public getProgramadores() {
+  public index() {
     this.programadoresService
-      .getProgramadores()
+      .index()
       .then(response => {
         this.programadores = response.data;
+      })
+      .catch(err => {
+        this.errorHandler.handler(err);
+      });
+  }
+
+  public destroy(id: number) {
+    this.programadoresService
+      .destroy(id)
+      .then(response => {
+        this.errorHandler.handlerSuccess("Deletado com sucesso");
+
+        this.programadores = this.programadores.filter(programador => {
+          return programador._id.toString() !== id.toString();
+        });
       })
       .catch(err => {
         this.errorHandler.handler(err);

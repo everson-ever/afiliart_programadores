@@ -32,7 +32,10 @@
       <td *ngIf="authService.jwtPayload.role === 'ADMIN'">
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
       </td>
-      <td *ngIf="authService.jwtPayload.role === 'ADMIN'">
+      <td
+        (click)="destroy(programador._id)"
+        *ngIf="authService.jwtPayload.role === 'ADMIN'"
+      >
         <i class="fa fa-trash" aria-hidden="true"></i>
       </td>
     </tr>
