@@ -20,7 +20,7 @@
       <li [routerLink]="['/usuarios']" routerLinkActive="router-link-active">
         Usuarios
       </li>
-      <li [routerLink]="['/sair']" routerLinkActive="router-link-active">
+      <li (click)="authService.logout()">
         Sair
       </li>
     </ul>

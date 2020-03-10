@@ -7,8 +7,8 @@ import { AuthService } from "src/app/seguranca/services/auth.service";
   styleUrls: ["./menu.component.css"]
 })
 export class MenuComponent implements OnInit {
-  @Input() active;
   @Output() closeMenu = new EventEmitter();
+  @Input() active;
 
   constructor(public authService: AuthService) {}
 
