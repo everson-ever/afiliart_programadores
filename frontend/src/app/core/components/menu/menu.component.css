@@ -50,16 +50,24 @@
   padding-left: 15px;
 }
 
-.menu li {
+.menu a {
   color: #fff;
   font-size: 1em;
   font-weight: 300;
-  margin-bottom: 20px;
   cursor: pointer;
+}
+
+.menu li {
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .menu li:hover {
   color: rgb(197, 197, 197);
+}
+
+.logout {
+  cursor: pointer;
 }
 
 .active {

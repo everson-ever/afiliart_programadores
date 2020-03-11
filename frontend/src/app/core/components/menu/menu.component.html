@@ -11,16 +11,21 @@
     </div>
 
     <ul class="menu">
-      <li
-        [routerLink]="['/programadores']"
-        routerLinkActive="router-link-active"
-      >
-        Programadores
+      <li>
+        <a
+          [routerLink]="['/programadores']"
+          routerLinkActive="router-link-active"
+          >Programadores</a
+        >
       </li>
-      <li [routerLink]="['/usuarios']" routerLinkActive="router-link-active">
-        Usuarios
+
+      <li *ngIf="authService.jwtPayload.role === 'ADMIN'">
+        <a [routerLink]="['/usuarios']" routerLinkActive="router-link-active"
+          >Usuarios</a
+        >
       </li>
-      <li (click)="authService.logout()">
+
+      <li class="logout" (click)="authService.logout()">
         Sair
       </li>
     </ul>
