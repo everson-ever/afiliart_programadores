@@ -1,0 +1,179 @@
+<div class="container pt-5">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="nome">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        name="nome"
+        [(ngModel)]="programador.nome"
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        [(ngModel)]="programador.email"
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="telefone">Telefone</label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefone"
+        name="telefone"
+        [(ngModel)]="programador.telefone"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Linkedin</label>
+    <input
+      type="text"
+      class="form-control"
+      id="linkedin"
+      placeholder="Linkedin..."
+      name="linkedin"
+      [(ngModel)]="programador.linkedin"
+    />
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="cidade">Cidade</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cidade"
+        name="cidade"
+        [(ngModel)]="programador.cidade"
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="estado">Estado</label>
+      <input
+        type="text"
+        class="form-control"
+        id="estado"
+        name="estado"
+        [(ngModel)]="programador.estado"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="from-group col-md-12">
+      <p>Turno de estudo</p>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="turno"
+          id="manha"
+          value="Manhã"
+          checked
+          [(ngModel)]="programador.turno"
+        />
+        <label class="form-check-label" for="manha">
+          Manhã
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="turno"
+          id="tarde"
+          value="Tarde"
+          [(ngModel)]="programador.turno"
+        />
+        <label class="form-check-label" for="tarde">
+          Tarde
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="turno"
+          id="noite"
+          value="Noite"
+          [(ngModel)]="programador.turno"
+        />
+        <label class="form-check-label" for="Noite">
+          Noite
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row mt-3">
+    <div class="from-group col-md-4">
+      <p>Habilidades em Node JS</p>
+      <p-slider
+        [(ngModel)]="habilidades.nodejs"
+        [style]="{ width: '14em' }"
+        [min]="0"
+        [max]="5"
+        [animate]="true"
+      ></p-slider>
+      <p class="mt-1">{{ habilidades.nodejs }}</p>
+    </div>
+
+    <div class="from-group col-md-4">
+      <p>Habilidades em HTML</p>
+      <p-slider
+        [(ngModel)]="habilidades.html"
+        [style]="{ width: '14em' }"
+        [min]="0"
+        [max]="5"
+        [animate]="true"
+      ></p-slider>
+      <p class="mt-1">{{ habilidades.html }}</p>
+    </div>
+
+    <div class="from-group col-md-4">
+      <p>Habilidades em CSS</p>
+      <p-slider
+        [(ngModel)]="habilidades.css"
+        [style]="{ width: '14em' }"
+        [min]="0"
+        [max]="5"
+        [animate]="true"
+      ></p-slider>
+      <p class="mt-1">{{ habilidades.css }}</p>
+    </div>
+
+    <div class="from-group col-md-4">
+      <p>Habilidades em Angular</p>
+      <p-slider
+        [(ngModel)]="habilidades.angular"
+        [style]="{ width: '14em' }"
+        [min]="0"
+        [max]="5"
+        [animate]="true"
+      ></p-slider>
+      <p class="mt-1">{{ habilidades.angular }}</p>
+    </div>
+
+    <div class="from-group col-md-4">
+      <p>Habilidades em Banco de dados</p>
+      <p-slider
+        [(ngModel)]="habilidades.bancoDados"
+        [style]="{ width: '14em' }"
+        [min]="0"
+        [max]="5"
+        [animate]="true"
+      ></p-slider>
+      <p class="mt-1">{{ habilidades.bancoDados }}</p>
+    </div>
+  </div>
+
+  <button (click)="cadastrar()" type="submit" class="btn btn-primary mt-4 mb-5">
+    Cadastrar
+  </button>
+</div>
