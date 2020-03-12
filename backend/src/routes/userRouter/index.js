@@ -7,7 +7,7 @@ const routes = Router();
 
 routes.get(
   '/usuarios',
-  permission([roles.admin, roles.gestor]),
+  permission(roles.admin),
   UserController.index
 );
 //routes.post('/usuarios', permission(roles.admin), UserController.store);

@@ -9,17 +9,17 @@ routes.get('/programadores', ProgrammerController.index);
 routes.get('/programadores/:id', ProgrammerController.show);
 routes.post(
   '/programadores',
-  permission([roles.admin, roles.gestor]),
+  permission(roles.admin),
   ProgrammerController.store
 );
 routes.put(
   '/programadores/:id',
-  permission([roles.admin, roles.gestor]),
+  permission(roles.admin),
   ProgrammerController.update
 );
 routes.delete(
   '/programadores/:id',
-  permission([roles.admin, roles.gestor]),
+  permission(roles.admin),
   ProgrammerController.destroy
 );
 
