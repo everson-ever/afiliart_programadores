@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthguardGuard } from '../auth-guard.guard';
 import { CadastrarProgramadorComponent } from './components/cadastrar-programador/cadastrar-programador.component';
 import { ListaProgramadoresComponent } from './components/lista-programadores/lista-programadores.component';
 
 const routes: Routes = [
-	{ path: 'programadores', component: ListaProgramadoresComponent },
-	{ path: 'programadores/cadastrar', component: CadastrarProgramadorComponent }
+	{ path: 'programadores', component: ListaProgramadoresComponent, canActivate: [ AuthguardGuard ] },
+	{ path: 'programadores/cadastrar', component: CadastrarProgramadorComponent, canActivate: [ AuthguardGuard ] }
 ];
 
 @NgModule({
