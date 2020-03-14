@@ -32,10 +32,12 @@ Segunda etapa do processo seletivo para selecionar estagiários da Afiliart
 ## Iniciar Backend
 - Execute npm i dentro do diretório backend
 - Não é necessário fazer mais nada pois o banco de dados está online
+- execute npm run dev
 - a aplicação será iniciada em http://localhost:3000/api
 
 ## Iniciar Frontend
 Com o Angular v-9 instalado entre no diretório frontend e execute npm i e agurde a instalação do pacotes
+- execute ng serve
 a aplicação será executada em http://localhost:4200
 
 
