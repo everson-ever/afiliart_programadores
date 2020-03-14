@@ -21,6 +21,21 @@ export class ProgramadoresService {
 			});
 	}
 
+	public show(id: number): Promise<any> {
+		return this.http
+			.get(`${this.apiService.url}/programadores/${id}`)
+			.toPromise()
+			.then((response) => {
+				return Promise.resolve(response);
+			})
+			.catch((err) => {
+				if (err.status === 404) {
+					return Promise.reject('Recurso não encontrado');
+				}
+				return Promise.reject(err);
+			});
+	}
+
 	public destroy(id: number): Promise<any> {
 		return this.http
 			.delete(`${this.apiService.url}/programadores/${id}`)
@@ -45,6 +60,18 @@ export class ProgramadoresService {
 			.toPromise()
 			.then((response) => {
 				return Promise.resolve(response);
+			})
+			.catch((err) => {
+				return Promise.reject(err);
+			});
+	}
+
+	public update(programador: Programador): Promise<any> {
+		return this.http
+			.put(`${this.apiService.url}/programadores/${programador._id}`, programador)
+			.toPromise()
+			.then(() => {
+				return Promise.resolve('Programador editado');
 			})
 			.catch((err) => {
 				return Promise.reject(err);

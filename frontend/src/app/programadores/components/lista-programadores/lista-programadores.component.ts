@@ -30,6 +30,10 @@ export class ListaProgramadoresComponent implements OnInit {
 		this.router.navigate([ '/programadores/cadastrar' ]);
 	}
 
+	public redirectEdit(id: number) {
+		this.router.navigate([ '/programadores/editar', id ]);
+	}
+
 	public showHability(programador) {
 		this.habilidade = programador.habilidades;
 		this.display = true;

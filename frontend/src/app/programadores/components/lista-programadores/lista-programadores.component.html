@@ -30,7 +30,10 @@
       <td (click)="showHability(programador)">
         <i class="fa fa-book" aria-hidden="true"></i>
       </td>
-      <td *ngIf="authService.jwtPayload.role === 'ADMIN'">
+      <td
+        (click)="redirectEdit(programador._id)"
+        *ngIf="authService.jwtPayload.role === 'ADMIN'"
+      >
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
       </td>
       <td

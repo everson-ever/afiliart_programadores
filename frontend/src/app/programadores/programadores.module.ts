@@ -8,9 +8,10 @@ import { SliderModule } from 'primeng/slider';
 import { CadastrarProgramadorComponent } from './components/cadastrar-programador/cadastrar-programador.component';
 import { ListaProgramadoresComponent } from './components/lista-programadores/lista-programadores.component';
 import { ProgramadoresRoutingModule } from './programadores-routing-module';
+import { EditarComponent } from './components/editar/editar.component';
 
 @NgModule({
-	declarations: [ ListaProgramadoresComponent, CadastrarProgramadorComponent ],
+	declarations: [ ListaProgramadoresComponent, CadastrarProgramadorComponent, EditarComponent ],
 	imports: [
 		CommonModule,
 		ProgramadoresRoutingModule,
