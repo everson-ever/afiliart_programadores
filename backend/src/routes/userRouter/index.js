@@ -5,11 +5,7 @@ import permission from './../../app/middlewares/permission';
 
 const routes = Router();
 
-routes.get(
-  '/usuarios',
-  permission(roles.admin),
-  UserController.index
-);
+routes.get('/usuarios', permission(roles.admin), UserController.index);
 //routes.post('/usuarios', permission(roles.admin), UserController.store);
 routes.delete('/usuarios/:id', permission(roles.admin), UserController.destroy);
 
